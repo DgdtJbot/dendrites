@@ -138,7 +138,7 @@
             border: 1px solid #334155;
         }
 
-        /* Buttons */
+        /* Buttons and Anchor Buttons */
         .btn {
             display: inline-block;
             background-color: var(--accent);
@@ -200,23 +200,27 @@
             100% { transform: scale(1); opacity: 0.7; }
         }
     </style>
+    <!-- MathJax for nice math rendering if needed -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chhtml.js"></script>
 </head>
 <body>
 
     <header>
         <nav>
-            <a class="logo" onclick="navigateTo('home')">LithiumDendrite.io</a>
+            <a class="logo" href="#home">LithiumDendrite.io</a>
             <ul class="nav-links">
-                <li><a id="nav-home" onclick="navigateTo('home')" class="active">Home</a></li>
-                <li><a id="nav-what-are-dendrites" onclick="navigateTo('what-are-dendrites')">What are Dendrites?</a></li>
-                <li><a id="nav-solutions" onclick="navigateTo('solutions')">Solutions</a></li>
-                <li><a id="nav-simulation" onclick="navigateTo('simulation')">Simulation</a></li>
-                <li><a id="nav-about" onclick="navigateTo('about')">About</a></li>
+                <li><a id="nav-home" href="#home">Home</a></li>
+                <li><a id="nav-what-are-dendrites" href="#what-are-dendrites">What are Dendrites?</a></li>
+                <li><a id="nav-solutions" href="#solutions">Solutions</a></li>
+                <li><a id="nav-simulation" href="#simulation">Simulation</a></li>
+                <li><a id="nav-about" href="#about">About</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="home" class="page active">
+    <!-- HOME PAGE -->
+    <main id="home" class="page">
         <h1>The Clear Threat to Next-Gen Batteries</h1>
         <p>As the world transitions rapidly to renewable energy storage and electric mobility, the demand for high-energy-density batteries has never been greater. Lithium-metal batteries represent the holy grail of energy storage, but they face a microscopic, existential threat.</p>
         
@@ -227,9 +231,10 @@
 
         <p>Explore this platform to understand the mechanics of dendrite formation, investigate engineering solutions being developed in labs worldwide, and view our predictive modeling concept.</p>
         
-        <button class="btn" onclick="navigateTo('what-are-dendrites')">Learn What Dendrites Are &rarr;</button>
+        <a class="btn" href="#what-are-dendrites">Learn What Dendrites Are &rarr;</a>
     </main>
 
+    <!-- WHAT ARE DENDRITES PAGE -->
     <main id="what-are-dendrites" class="page">
         <h1>Understanding Lithium Dendrites</h1>
         <p>Lithium dendrites are metallic microstructures that form on the surface of a lithium metal anode during the charging process of a battery.</p>
@@ -255,10 +260,12 @@
             </div>
         </div>
 
-        <button class="btn" onclick="navigateTo('solutions')">Explore Solutions &rarr;</button>
+        <a class="btn" href="#solutions">Explore Solutions &rarr;</a>
+        <a class="btn btn-secondary" href="#home">&larr; Back Home</a>
     </main>
 
-   <main id="solutions" class="page">
+    <!-- SOLUTIONS PAGE -->
+    <main id="solutions" class="page">
         <h1>Engineering & Practical Solutions</h1>
         <p>Eradicating dendrites requires breaking the thermodynamic and kinetic cycles that allow them to grow. This involves a combination of high-level industrial engineering and smart daily user habits.</p>
 
@@ -299,16 +306,18 @@
         <div class="card">
             <h3>Predicting the Kinetics</h3>
             <p style="margin-top: 0.5rem;">Want to see exactly how parameters like temperature and current flux alter atomic behavior? Explore our simulation sandbox.</p>
-            <button class="btn" onclick="navigateTo('simulation')">Go to Simulation Engine &rarr;</button>
+            <a class="btn" href="#simulation">Go to Simulation Engine &rarr;</a>
         </div>
         
-        <button class="btn btn-secondary" style="margin-left: 0;" onclick="navigateTo('what-are-dendrites')">&larr; Back to Explanations</button>
+        <a class="btn btn-secondary" style="margin-left: 0;" href="#what-are-dendrites">&larr; Back to Explanations</a>
     </main>
 
+    <!-- SIMULATION PAGE -->
     <main id="simulation" class="page">
         <h1>Morphology Simulation Engine</h1>
         <p>This module provides a predictive look at electrochemical deposition dynamics, utilizing a lattice-based <strong>Kinetic Monte Carlo (KMC)</strong> algorithm to simulate discrete atomic behaviors over state-transition timescales.</p>
 
+        <!-- Simulated Blank Frame placeholder -->
         <div class="simulation-viewport">
             <div class="sim-icon">⚙️</div>
             <h3 style="margin-bottom: 0.5rem;">[ Kinetic Monte Carlo Sandbox ]</h3>
@@ -324,9 +333,10 @@
         <h2>Simulation Parameters & Mechanics</h2>
         <p>Unlike continuous models, this KMC framework simulates the physical reality of individual lithium atoms executing random walks and finding minimal-energy configurations. By toggling the parameters, users will be able to observe critical phase transitions where smooth, uniform film plating breaks down into unstable dendritic spikes due to high local flux or low surface mobility.</p>
         
-        <button class="btn btn-secondary" style="margin-left: 0;" onclick="navigateTo('solutions')">&larr; Back to Solutions</button>
+        <a class="btn btn-secondary" style="margin-left: 0;" href="#solutions">&larr; Back to Solutions</a>
     </main>
 
+    <!-- ABOUT PAGE -->
     <main id="about" class="page">
         <h1>About This Initiative</h1>
         <p>This educational micro-portal was designed to bridge the gap between abstract material science theory and accessible web visualizations.</p>
@@ -345,55 +355,70 @@
         <div class="grid">
             <div class="grid-card">
                 <div style="width: 70px; height: 70px; background-color: #334155; border-radius: 50%; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--accent);">TM</div>
-                <h3 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 0.2rem;">Happy Worker</h3>
-                <p style="color: var(--accent); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.75rem;">Team Lead</p>
+                <h3 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 0.2rem;">Alex Chen</h3>
+                <p style="color: var(--accent); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.75rem;">Lead Software Architecture & Modeling</p>
                 <p style="font-size: 0.9rem; margin-bottom: 0;">Responsible for compiling lattice structures and translating Kinetic Monte Carlo stochastic event hooks into frontend rendering pathways.</p>
             </div>
             <div class="grid-card">
                 <div style="width: 70px; height: 70px; background-color: #334155; border-radius: 50%; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--accent);">TM</div>
-                <h3 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 0.2rem;">Happy Worker 2</h3>
+                <h3 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 0.2rem;">Sarah Jenkins</h3>
                 <p style="color: var(--accent); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.75rem;">Electrochemical Dynamics Research</p>
                 <p style="font-size: 0.9rem; margin-bottom: 0;">Focuses on mapping Arrhenius energy barriers, deposition flux dynamics, and mapping physical SEI parameters to simulation equations.</p>
             </div>
             <div class="grid-card">
                 <div style="width: 70px; height: 70px; background-color: #334155; border-radius: 50%; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--accent);">TM</div>
-                <h3 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 0.2rem;">Happy Worker 3</h3>
-                <p style="color: var(--accent); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.75rem;">Simulation and Webpage Design</p>
-                <p style="font-size: 0.9rem; margin-bottom: 0;">Designed the seamless single-page dashboard mechanics, ensuring clean typography and logical instructional flow across modules.<br>Ran simulations to validate model predictions.</br></p>
+                <h3 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 0.2rem;">Marcus Vance</h3>
+                <p style="color: var(--accent); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.75rem;">UI/UX & Interactive Design</p>
+                <p style="font-size: 0.9rem; margin-bottom: 0;">Designed the seamless single-page dashboard mechanics, ensuring clean typography and logical instructional flow across modules.</p>
             </div>
         </div>
 
+        <a class="btn" href="#home">Return to Home Dashboard</a>
     </main>
 
     <script>
-        function navigateTo(pageId) {
-            // Hide all pages
+        // Centralized router logic driven by hash changes
+        function router() {
+            // Read hash path, strip out the "#" symbol, and default to 'home'
+            let pageId = window.location.hash.replace('#', '') || 'home';
+            
+            // Whitelist of valid page IDs to prevent rendering errors
+            const validPages = ['home', 'what-are-dendrites', 'solutions', 'simulation', 'about'];
+            if (!validPages.includes(pageId)) {
+                pageId = 'home';
+            }
+
+            // 1. Hide all pages
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => {
                 page.classList.remove('active');
             });
 
-            // Remove active style from all nav links
+            // 2. Remove "active" visual style from all navigation links
             const navLinks = document.querySelectorAll('.nav-links a');
             navLinks.forEach(link => {
                 link.classList.remove('active');
             });
 
-            // Show target page
+            // 3. Mount the target page view
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.add('active');
             }
 
-            // Highlight target nav link
+            // 4. Highlight current link in navigation header
             const targetNavLink = document.getElementById(`nav-${pageId}`);
             if (targetNavLink) {
                 targetNavLink.classList.add('active');
             }
 
-            // Scroll smoothly to top of page on change
+            // 5. Scroll smoothly back to top on page mount
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Attach event listeners to monitor browser forward/back buttons and initial load
+        window.addEventListener('hashchange', router);
+        window.addEventListener('DOMContentLoaded', router);
     </script>
 </body>
 </html>
